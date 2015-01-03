@@ -1,4 +1,3 @@
-
 FROM    makuk66/docker-oracle-java7
 MAINTAINER  Martijn Koster "mak-docker@greenhills.co.uk"
 
@@ -12,6 +11,11 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
   tar -C /opt --extract --file /opt/$SOLR.tgz && \
   rm /opt/$SOLR.tgz && \
   ln -s /opt/$SOLR /opt/solr
+
+COPY solr-conf/3.x/* /opt/apache-solr-3.5.0/example/solr/conf/
+
+VOLUME /opt/apache-solr-3.5.0/example/solr/data
+VOLUME /opt/apache-solr-3.5.0/example/logs
 
 EXPOSE 8983
 COPY start.sh /start.sh
