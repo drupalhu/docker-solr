@@ -13,6 +13,7 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
   ln -s /opt/$SOLR /opt/solr
 
 COPY solr-conf/3.x/* /opt/apache-solr-3.5.0/example/solr/conf/
+COPY solr.xml /opt/apache-solr-3.5.0/example/solr/solr.xml
 
 VOLUME /opt/apache-solr-3.5.0/example/solr/data
 VOLUME /opt/apache-solr-3.5.0/example/logs
